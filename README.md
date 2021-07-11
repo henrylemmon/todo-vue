@@ -1,19 +1,8 @@
-# dodo
+# todo app with vue 2
+no components or props
 
-## Project setup
-```
-npm install
-```
+### Following youtube tutorial
+[Vue.js Todo App - Basics - Part 1](https://www.youtube.com/watch?v=A5S23KS_-bU).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Created by
+[Andre Madarang](https://www.youtube.com/channel/UCtb40EQj2inp8zuaQlLx3iQ).
