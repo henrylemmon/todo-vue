@@ -11,42 +11,16 @@
             enter-active-class="animate__animated animate__fadeInUp" 
             leave-active-class="animate__animated animate__fadeOutDown"
         >
-            <div
-                class="todo-item"
+            <todo-item
                 v-for="(todo, index) in todosFiltered"
-                :key=todo.id
+                :key="todo.id"
+                :todo="todo"
+                :index="index"
+                :checkAll="!anyRemaining"
+                @removeTodo="removeTodo"
+                @doneEdit="doneEdit"
             >
-                <div class="todo-item-left">
-                    <input 
-                        type="checkbox"
-                        class="todo-completed-checkbox"
-                        v-model="todo.completed"
-                    >
-                    <div
-                        :class="[{completed: todo.completed}, 'todo-item-label']"
-                        v-if="!todo.editing"
-                        @dblclick="editTodo(todo)"
-                    >
-                        {{ todo.title }}
-                    </div>
-                    <input 
-                        type="text"
-                        class="todo-item-edit"
-                        v-else
-                        v-model="todo.title"
-                        @keyup.enter="doneEdit(todo)"
-                        @blur="doneEdit(todo)"
-                        @keyup.esc="cancelEdit(todo)"
-                        v-focus
-                    >
-                </div>
-                <div
-                    class="remove-item"
-                    @click="removeTodo(index)"
-                >
-                    &times;
-                </div>
-            </div>
+            </todo-item>
         </transition-group>
         <div class="extra-container">
             <div>
@@ -88,8 +62,13 @@
 </template>
 
 <script>
+import TodoItem from './TodoItem'
+
 export default {
     name: 'todo-list',
+    components: {
+        TodoItem,
+    },
     data() {
         return {
             newTodo: '',
@@ -147,21 +126,8 @@ export default {
             this.idForNewTodo++
             this.newTodo = ''
         },
-        editTodo(todo) {
-            this.beforeEditCache = todo.title
-            todo.editing = true
-        },
-        doneEdit(todo) {
-            if (todo.title.trim() === '') {
-                todo.title = this.beforeEditCache
-            }
-            todo.editing = false
-            this.beforeEditCache = ''
-        },
-        cancelEdit(todo) {
-            todo.title = this.beforeEditCache
-            todo.editing = false
-            this.beforeEditCache = ''
+        doneEdit(data) {
+            this.todos.splice(data.index, 1, data.todo)
         },
         removeTodo(index) {
             this.todos.splice(index, 1)
@@ -173,22 +139,6 @@ export default {
             this.todos = this.todos.filter(todo => !todo.completed)
         },
     },
-    directives: {
-        focus: {
-           inserted: function (el) {
-               el.focus()
-           }
-        }
-    // the difference between vue2 and vue3 
-    // 'todo-focus': function (el, binding) {
-    //   if (binding.value) {
-    //     el.focus();
-    //   }
-    // }
-    // 'todo-focus': function (el) {
-    //     el.focus();
-    // }
-  },
 }
 </script>
 
