@@ -1,8 +1,9 @@
-# todo app with vue 2
-no components or props
+# todo-vue-2 using vue 2
+part 1 and part 2 complete
 
-### Following youtube tutorial
-[Vue.js Todo App - Basics - Part 1](https://www.youtube.com/watch?v=A5S23KS_-bU).
 
-### Created by
-[Andre Madarang](https://www.youtube.com/channel/UCtb40EQj2inp8zuaQlLx3iQ).
+### Following
+[Vue.js Todo App tutorial](https://www.youtube.com/watch?v=A5S23KS_-bU).
+
+### By
+[Andre Madarang](https://www.youtube.com/channel/UCtb40EQj2inp8zuaQlLx3iQ)
