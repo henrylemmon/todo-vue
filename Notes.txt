@@ -11,9 +11,13 @@ each episode has it's own commit aptly named
 
 event-bus
 https://www.youtube.com/watch?v=7AXiN5mrOgY
-@00:00
+excluded
 
 
 vuex
 https://www.youtube.com/watch?v=yrCGcnn4_RU
-@00:00
+excluded
+
+API and make it work with front end
+https://www.youtube.com/watch?v=Ork8274eqYo&t=655s
+@15:27
